@@ -2,6 +2,8 @@
 
 > pixel-avatar is a very simple javascript (snippet? program? script?) to generate github-like avatars with the HTML canvas.
 
+![Avatar preview 1](previews/avatar_1.jpg)![Avatar preview 2](previews/avatar_2.jpg)![Avatar preview 3](previews/avatar_3.jpg)
+
 I made this mainly to demonstrate how bad my Javascript programming is.
 
 ## Contributing
