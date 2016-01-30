@@ -1,6 +1,6 @@
 # pixel-avatar
 
-> pixel-avatar is a very simple javascript (snippet? program? script?) to generate github-like avatars.
+> pixel-avatar is a very simple javascript (snippet? program? script?) to generate github-like avatars with the HTML canvas.
 
 I made this mainly to demonstrate how bad my Javascript programming is.
 
@@ -10,8 +10,17 @@ Please, feel free to open an issue to suggest a cool feature or to tell me how b
 
 Since I see this as an exercise, I would love to implement new functions to test my skills.
 
+## Features
+
+* Generates 5x5 pixel avatars
+* Random colors
+
 ## Todo
 
+* Make avatar color selectable
+* Different avatar dimensions
+* Generate multiple avatars at the same time
+* Better organization of the code
 * Implement tests with Jasmine
 * Write tests for Jasmine
 * Wonder why I need test for this
