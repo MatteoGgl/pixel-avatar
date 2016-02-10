@@ -1,22 +1,34 @@
+/**
+ * Color object definition. Used when randomizing drawing colors or to pre-define them.
+ * @param {Number} r
+ * @param {Number} g
+ * @param {Number} b
+ * @param {Number} transparency
+ */
+
 function Color (r,g,b,transparency) {
   var self = this;
 
-  this.r = r;
-  this.g = g;
-  this.b = b;
+  self.r = r;
+  self.g = g;
+  self.b = b;
   if (typeof(transparency) === "undefined") {
-    this.transparency = 1;
+    self.transparency = 1;
   }
   else {
-    this.transparency = transparency;
+    self.transparency = transparency;
   }
 
-  this.rgb = r + "," + g + "," + b;
+  self.rgb = r + "," + g + "," + b;
 }
-
+/**
+ * Return the Color object rgb code, in the format "(xxx,yyy,zzz)"
+ * @return {String} rgb
+ */
 Color.prototype.returnRGBCode = function () {
-  console.log(this.rgb);
-  return this.rgb;
+  var self = this;
+  console.log(self.rgb);
+  return self.rgb;
 };
 
 //GENERATION OPTIONS
@@ -25,6 +37,13 @@ var base_seed = 2, //Size of the left half of the grid, used to calculate entire
   //FIXME Brush size leaves empty white lines between the pixels
   brush_size = 100 / base_height, //Brush size
   drawBg = true; //Not functional for now, keep true
+
+
+/**
+ * Randomizes the first half of the grid; used in simmetric generation
+ * @param {Array} grid
+ * @return {Array} map
+ */
 
 function randomizeHalfGrid (grid) {
   var map = grid;
@@ -36,6 +55,11 @@ function randomizeHalfGrid (grid) {
   }
   return map;
 }
+
+/**
+ * Randomizes the center of the grid; used in simmetric generation
+ * @return {Array} center
+ */
 
 function randomizeCenterGrid (){
   var center = [];
@@ -49,6 +73,13 @@ var red = new Color (200,0,0);
 var green = new Color (0,200,0);
 var blue = new Color (0,0,200);
 
+/**
+ * Randomizes a color for drawing; creates a new Color object and assigns a RGB value to its properties.
+ * If a color is passed as argument, then that color will be returned.
+ * @param {Color} color (optional)
+ * @return {Color} color
+ */
+
 function randomizeRGB(color) {
   if (typeof(color) === "undefined") {
     color = new Color();
@@ -56,9 +87,12 @@ function randomizeRGB(color) {
     color.g = Math.floor((Math.random() * 200) + 0);
     color.b = Math.floor((Math.random() * 200) + 0);
   }
-
   return color;
 }
+
+/**
+ * Main function that handles the drawing in the canvas.
+ */
 
 function drawAll () {
   var grid = [];
@@ -72,14 +106,14 @@ function drawAll () {
     var color = randomizeRGB();
     var bg_color = randomizeRGB();
 
-    color.returnRGBCode();
-    bg_color.returnRGBCode();
+    // color.returnRGBCode();
+    // bg_color.returnRGBCode();
 
     var coordx = 0, coordy = 0;
 
     for (var i = 0; i < base_seed; i++) {
       for (var j = 0; j < base_height; j++) {
-        console.log("Drawing normal " + grid[i][j] + " at " + coordx + "," +coordy);
+        //console.log("Drawing normal " + grid[i][j] + " at " + coordx + "," +coordy);
         if (grid[i][j]) {
           drw.fillStyle = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
         }
@@ -94,7 +128,7 @@ function drawAll () {
     }
 
     for (var x = 0; x < base_height; x++) {
-      console.log("Drawing center " + center[x] + " at " + coordx + "," +coordy);
+      //console.log("Drawing center " + center[x] + " at " + coordx + "," +coordy);
       if (center[x]) {
         drw.fillStyle = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
       }
@@ -111,7 +145,7 @@ function drawAll () {
     var ireverse = base_seed - 1;
     for (var k = 0; k < base_seed ; k++) {
       for (var z = 0; z < base_height; z++) {
-        console.log("Drawing reverse " + grid[ireverse][z] + " at " + coordx + "," +coordy);
+        //console.log("Drawing reverse " + grid[ireverse][z] + " at " + coordx + "," +coordy);
         if (grid[ireverse][z]) {
           drw.fillStyle = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
         }
