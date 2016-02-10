@@ -22,7 +22,7 @@ Since I see this as an exercise, I would love to implement new functions to test
 
 * Create a frontend to handle all these options
   * Make avatar color selectable
-  * :heavy_check_mark: Different avatar dimensions
+  * ~~Different avatar dimensions~~
   * Generate multiple avatars at the same time
 * Better organization of the code
 * Implement tests with Jasmine
