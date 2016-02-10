@@ -14,14 +14,16 @@ Since I see this as an exercise, I would love to implement new functions to test
 
 ## Features
 
-* Generates 5x5 pixel avatars
+* Generates different sized pixel avatars
+* Background color
 * Random colors
 
 ## Todo
 
-* Make avatar color selectable
-* Different avatar dimensions
-* Generate multiple avatars at the same time
+* Create a frontend to handle all these options
+  * Make avatar color selectable
+  * :heavy_check_mark: Different avatar dimensions
+  * Generate multiple avatars at the same time
 * Better organization of the code
 * Implement tests with Jasmine
 * Write tests for Jasmine
